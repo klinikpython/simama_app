@@ -1,0 +1,289 @@
+
+
+            <div class="panel-body">
+                <!-- ngIf: is_live -->
+                <div align="left">
+                    <!--<img src="../app/img/logo/{{desk.foto}}" class="img-logo" style="padding:0px 20px;width:70px;float: left"/>-->
+                    <center class="ng-binding">
+                        <h2 style="margin: 0px;" class="ng-binding">MASTERPRIMA</h2>
+                        SIMULASI SIMAMA 2 (36REGL002)<br>
+                    </center>
+                    <!--                    <table class="table" style="margin:0">
+                                            <tr>
+                                                <td style="text-align: left" colspan="2"><b>Unit Kerja :</b> {{data.unker}}</td>
+                                                <td style="text-align: right" colspan="3"><b>Nama Akun :</b> {{data.akun}}</td>
+                                            </tr>
+                                        </table>-->
+                    <div class="table-responsive" style="margin-top: 10px;">
+                        <table class="table table-striped table-hover table-bordered" border="1">
+                            <thead>
+                                <tr>
+                                    <th width="50">
+                                        <b>
+                                            No.
+                                        </b>
+                                    </th>
+                                    <th>
+                                        <b>
+                                            No. Ujian
+                                        </b>
+                                    </th>
+                                    <th>
+                                        <b>
+                                            NAMA
+                                        </b>
+                                    </th>
+                                    <!-- ngRepeat: val in kolom --><th ng-repeat="val in kolom" class="ng-scope">
+                                        <b class="ng-binding">
+                                            POLTEKKES - 1 | A. MATEMATIKA
+                                            (
+                                            <!-- ngIf: val.cara_penilaian == 1 --><span ng-if="val.cara_penilaian == 1" class="ng-scope">Single Answer</span><!-- end ngIf: val.cara_penilaian == 1 -->
+                                            <!-- ngIf: val.cara_penilaian == 2 -->
+                                            )
+                                        </b>
+                                    </th><!-- end ngRepeat: val in kolom --><th ng-repeat="val in kolom" class="ng-scope">
+                                        <b class="ng-binding">
+                                            POLTEKKES - 1 | B. BAHASA INGGRIS
+                                            (
+                                            <!-- ngIf: val.cara_penilaian == 1 --><span ng-if="val.cara_penilaian == 1" class="ng-scope">Single Answer</span><!-- end ngIf: val.cara_penilaian == 1 -->
+                                            <!-- ngIf: val.cara_penilaian == 2 -->
+                                            )
+                                        </b>
+                                    </th><!-- end ngRepeat: val in kolom --><th ng-repeat="val in kolom" class="ng-scope">
+                                        <b class="ng-binding">
+                                            POLTEKKES - 1 | C. BAHASA INDONESIA
+                                            (
+                                            <!-- ngIf: val.cara_penilaian == 1 --><span ng-if="val.cara_penilaian == 1" class="ng-scope">Single Answer</span><!-- end ngIf: val.cara_penilaian == 1 -->
+                                            <!-- ngIf: val.cara_penilaian == 2 -->
+                                            )
+                                        </b>
+                                    </th><!-- end ngRepeat: val in kolom --><th ng-repeat="val in kolom" class="ng-scope">
+                                        <b class="ng-binding">
+                                            POLTEKKES - 1 | D. FISIKA
+                                            (
+                                            <!-- ngIf: val.cara_penilaian == 1 --><span ng-if="val.cara_penilaian == 1" class="ng-scope">Single Answer</span><!-- end ngIf: val.cara_penilaian == 1 -->
+                                            <!-- ngIf: val.cara_penilaian == 2 -->
+                                            )
+                                        </b>
+                                    </th><!-- end ngRepeat: val in kolom --><th ng-repeat="val in kolom" class="ng-scope">
+                                        <b class="ng-binding">
+                                            POLTEKKES - 1 | F. BIOLOGI
+                                            (
+                                            <!-- ngIf: val.cara_penilaian == 1 --><span ng-if="val.cara_penilaian == 1" class="ng-scope">Single Answer</span><!-- end ngIf: val.cara_penilaian == 1 -->
+                                            <!-- ngIf: val.cara_penilaian == 2 -->
+                                            )
+                                        </b>
+                                    </th><!-- end ngRepeat: val in kolom --><th ng-repeat="val in kolom" class="ng-scope">
+                                        <b class="ng-binding">
+                                            POLTEKKES - 1 | E. KIMIA
+                                            (
+                                            <!-- ngIf: val.cara_penilaian == 1 --><span ng-if="val.cara_penilaian == 1" class="ng-scope">Single Answer</span><!-- end ngIf: val.cara_penilaian == 1 -->
+                                            <!-- ngIf: val.cara_penilaian == 2 -->
+                                            )
+                                        </b>
+                                    </th><!-- end ngRepeat: val in kolom -->
+                                    <th><b>Total</b></th>
+                                    <th><b>Keterangan</b></th>
+                                    <th><b>Kelas</b></th>
+                                    <th><b>Asal Sekolah</b></th>
+                                    <th><b>No. WA</b></th>
+                                    <th><b>Nama Ortu</b></th>
+                                    <th><b>No. Telp Ortu</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- ngRepeat: val in peserta| orderBy:'-nilai_total' --><tr ng-repeat="val in peserta| orderBy:'-nilai_total'" class="ng-scope">
+                                    <td style="text-align: center" class="ng-binding">
+                                        1
+                                    </td>
+                                    <td style="text-align: left" class="ng-binding">
+                                        REG002
+                                    </td>
+                                    <td class="ng-binding">
+                                        RARA REGITA SANDI
+                                    </td>
+                                    <!-- ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        65
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        45
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        40
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        14
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        25
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        15
+                                    </td><!-- end ngRepeat: val_kolom in kolom -->
+                                    <td style="text-align: center" class="ng-binding">
+                                        204
+                                    </td>
+                                    <td style="text-align: center" class="ng-binding">
+                                      TERIMAKASIH !
+                                    </td>
+                                    <td style="" class="ng-binding">
+                                        
+                                    </td>
+                                    <td style="text-align: center" class="ng-binding">
+                                        SMAN 1 KARANGAN
+                                    </td>
+                                    <td style="" class="ng-binding">
+                                      
+                                    </td>
+                                    <td style="text-align: center" class="ng-binding">
+                                        
+                                    </td>
+                                    <td style="" class="ng-binding">
+                                      
+                                    </td>
+                                </tr><!-- end ngRepeat: val in peserta| orderBy:'-nilai_total' --><tr ng-repeat="val in peserta| orderBy:'-nilai_total'" class="ng-scope">
+                                    <td style="text-align: center" class="ng-binding">
+                                        2
+                                    </td>
+                                    <td style="text-align: left" class="ng-binding">
+                                        REG003
+                                    </td>
+                                    <td class="ng-binding">
+                                        HANAN HABIBI
+                                    </td>
+                                    <!-- ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        50
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        45
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        25
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        8
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        10
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        15
+                                    </td><!-- end ngRepeat: val_kolom in kolom -->
+                                    <td style="text-align: center" class="ng-binding">
+                                        153
+                                    </td>
+                                    <td style="text-align: center" class="ng-binding">
+                                      TERIMAKASIH !
+                                    </td>
+                                    <td style="" class="ng-binding">
+                                        
+                                    </td>
+                                    <td style="text-align: center" class="ng-binding">
+                                        SMAN 1 PANGGUL
+                                    </td>
+                                    <td style="" class="ng-binding">
+                                      
+                                    </td>
+                                    <td style="text-align: center" class="ng-binding">
+                                        
+                                    </td>
+                                    <td style="" class="ng-binding">
+                                      
+                                    </td>
+                                </tr><!-- end ngRepeat: val in peserta| orderBy:'-nilai_total' --><tr ng-repeat="val in peserta| orderBy:'-nilai_total'" class="ng-scope">
+                                    <td style="text-align: center" class="ng-binding">
+                                        3
+                                    </td>
+                                    <td style="text-align: left" class="ng-binding">
+                                        REG001
+                                    </td>
+                                    <td class="ng-binding">
+                                        AGAM ANANTA
+                                    </td>
+                                    <!-- ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        0
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        60
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        30
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        4
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        0
+                                    </td><!-- end ngRepeat: val_kolom in kolom --><td style="text-align: center" ng-repeat="val_kolom in kolom" class="ng-binding ng-scope">
+
+                                        0
+                                    </td><!-- end ngRepeat: val_kolom in kolom -->
+                                    <td style="text-align: center" class="ng-binding">
+                                        94
+                                    </td>
+                                    <td style="text-align: center" class="ng-binding">
+                                      TERIMAKASIH !
+                                    </td>
+                                    <td style="" class="ng-binding">
+                                        
+                                    </td>
+                                    <td style="text-align: center" class="ng-binding">
+                                        SMAN 1 DURENAN
+                                    </td>
+                                    <td style="" class="ng-binding">
+                                      
+                                    </td>
+                                    <td style="text-align: center" class="ng-binding">
+                                        
+                                    </td>
+                                    <td style="" class="ng-binding">
+                                      
+                                    </td>
+                                </tr><!-- end ngRepeat: val in peserta| orderBy:'-nilai_total' -->
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    <table class="table " ng-hide="is_live">
+                        <tbody><tr>
+                            <td style="border: none;width: 33%">
+
+                            </td>
+                            <td style="border: none;width: 33%">
+
+                            </td>
+                            <td style="border: none;width: 33%" class="ng-binding">
+                                ONLINE,  28 Januari 2023
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: auto;border: none;" class="ng-binding">
+                                <br>
+                                <br>
+                                <br><br><br><br>
+                                <br>
+                                
+                            </td>
+                            <td style="border: none;" class="ng-binding">
+                                <br>
+                                <br>
+                                <br><br><br><br>
+                                <br>
+                                
+                            </td>
+                            <td style="border: none;" class="ng-binding">
+                                <br>
+                                <br>
+                                <br><br><br><br>
+                                <br>
+                                
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+        
