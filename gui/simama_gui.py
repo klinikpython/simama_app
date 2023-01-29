@@ -15,8 +15,8 @@ import tkinter.font as fo
 from PIL import ImageTk, Image
 
 
-MATERI_SIMA = ("Matematika", "Bahasa Inggris", "Bahasa Indonesia", 
-				"Fisika", "Kimia", "Biologi")
+MATERI_SIMA = ("1 | Matematika", "2 | Bahasa Inggris", "3 | Bahasa Indonesia", 
+				"4 | Fisika", "5 | Kimia", "6 | Biologi")
 
 KOLOM_DATA = [('no', 'NO', 30), ('noji', 'NO UJIAN', 75),
 				('nama', 'NAMA PESERTA', 150), ('mat', 'MAT', 40),
@@ -38,7 +38,7 @@ class SimamaGUI:
 		
 		self.parent.title("Olah Data Tryout :: SIMAMA")
 		self.parent.resizable(False, False)
-		#self.protocol("WM_DELETE_WINDOW", self.klik_btn_x)
+		self.parent.protocol("WM_DELETE_WINDOW", self.klik_btn_x)
 
 		self.tengah_layar(wx, wy)
 		self.atur_style()
@@ -126,7 +126,7 @@ class SimamaGUI:
 		
 		# nama-ujian
 		ttk.Label(frame, text='Nama Ujian : ',style='bg.TLabel').pack(side='top', anchor='w')
-		self.ent_namji = ttk.Entry(frame, width=35)
+		self.ent_namji = ttk.Entry(frame, width=25)
 		self.ent_namji.pack(side='top', fill='x')
 		
 		# tgl-ujian
@@ -136,8 +136,7 @@ class SimamaGUI:
 		
 		# jenjang
 		ttk.Label(frame, text='Jenjang Kelas : ',style='bg.TLabel').pack(side='top', anchor='w')
-		self.cbx_jenjang = ttk.Combobox(frame, values=JENJANG, state='readonly',
-			width=30)
+		self.cbx_jenjang = ttk.Combobox(frame, values=JENJANG, state='readonly')
 		self.cbx_jenjang.pack(side='top', fill='x')
 		
 		# jum-peserta
@@ -179,10 +178,15 @@ class SimamaGUI:
 
 		# tombol proses
 		self.img_proses = ImageTk.PhotoImage(Image.open("./src/ico/oke.png"))
+		self.img_bersih = ImageTk.PhotoImage(Image.open("./src/ico/broom.png"))
 
 		self.btn_proses = ttk.Button(frame, text=' Proses',
 			command=self.klik_btn_proses, image=self.img_proses, compound='left')
 		self.btn_proses.pack(side='top', fill='x', pady=5)
+				
+		self.btn_bersih = ttk.Button(frame, text=' Bersihkan',
+			command=self.klik_btn_bersih, image=self.img_bersih, compound='left')
+		self.btn_bersih.pack(side='top', fill='x')
 				
 	def view_box22(self, frame):
 		#title_tabel
@@ -210,27 +214,34 @@ class SimamaGUI:
 		
 		# frame-tombol
 		tombolframe = ttk.Frame(frame, style='bg.TFrame')
-		tombolframe.pack(pady=5)
+		tombolframe.pack(fill='x', pady=5)
 		
 		self.img_rekap = ImageTk.PhotoImage(Image.open("./src/ico/excel.png"))
 		self.img_ekspor = ImageTk.PhotoImage(Image.open("./src/ico/pdf.png"))
 		self.img_tutup = ImageTk.PhotoImage(Image.open("./src/ico/close.png"))
 
-		self.btn_ekspor = ttk.Button(tombolframe, text=' Ekspor Semua',
-			command=self.klik_btn_ekspor, width=15,
-			image=self.img_ekspor, compound='left')
-		self.btn_ekspor.pack(side='right')
-
-		self.btn_ekspor1 = ttk.Button(tombolframe, text=' Ekspor Satu',
-			command=self.klik_btn_ekspor1, width=15,
-			image=self.img_ekspor, compound='left')
-		self.btn_ekspor1.pack(side='right', padx=5)
-		
 		self.btn_rekap = ttk.Button(tombolframe, text=' Rekap Hasil',
 			command=self.klik_btn_rekap, width=15,
 			image=self.img_rekap, compound='left')
-		self.btn_rekap.pack(side='right')
+		self.btn_rekap.pack(side='left')
 		
+		self.btn_ekspor1 = ttk.Button(tombolframe, text=' Ekspor Satu',
+			command=self.klik_btn_ekspor1, width=15,
+			image=self.img_ekspor, compound='left')
+		self.btn_ekspor1.pack(side='left', padx=5)
+		
+		self.btn_ekspor = ttk.Button(tombolframe, text=' Ekspor Semua',
+			command=self.klik_btn_ekspor, width=15,
+			image=self.img_ekspor, compound='left')
+		self.btn_ekspor.pack(side='left')
+		
+		self.btn_tutup = ttk.Button(tombolframe, text=' Tutup',
+			command=self.klik_btn_tutup, width=10,
+			image=self.img_tutup, compound='left')
+		self.btn_tutup.pack(side='right')
+		
+		
+
 	def set_kolom_tabel(self, kolom, tree, indeks):
 		datkol = []
 
@@ -245,6 +256,9 @@ class SimamaGUI:
 				tree.column(kol, width=pjg, anchor='w')
 			else:                
 				tree.column(kol, width=pjg, anchor='center')
+				
+	def klik_btn_x(self, event=None):
+		pass
 		
 	def klik_btn_input(self):
 		print("KLIK === TOMBOL INPUT FILE")
@@ -275,57 +289,30 @@ class SimamaGUI:
 			#print("Info Valid: {}".format(dataValid[0]))
 			
 			if dataValid[1]:
-				print("### file-valid-proses")
-				
-				if not self.stTampilkanData:
-					self.on_komponen()
-					self.stTampilkanData = True
-					
-				# bersihkan database
-				print("### hapus-database-awal")
-				self.md.dba_hapus_data()
-				
-				# baca data xls
-				print("### membaca-file-input")
-				datasis = self.md.xls_baca_file(self.namfiledat)
-				#print(datasis)
-				
-				# simpan data ke database
-				print("### simpan-data-siswa")
-				self.md.dba_isi_data(datasis)
-				
-				# tampilkan data ke tabel
-				print("### ambil-data-untuk-tabel")
-				datasis_show = self.md.dba_ambil_data_show()	
-				
-				print("### tampilkan-data-pada-tabel")
-				self.hapus_tabel(self.trvDatFile)
-				self.tampilkan_data(self.trvDatFile, datasis_show)
-				
 				self.btn_rekap.focus_set()					
-				mb.showinfo("Informasi", dataValid[0], parent=self)
+				mb.showinfo("Informasi", dataValid[0], parent=self.parent)
 			else:
 				print("### file-tidak-valid")
 				
 				# hapus isi entry-file
 				self.ent_input.delete(0, 'end')
 				
-				if self.stTampilkanData:
-					self.off_komponen()
-					self.stTampilkanData = False
-					
-				self.hapus_tabel(self.trvDatFile)
-					
 				self.btn_input.focus_set()					
-				mb.showinfo("Informasi", dataValid[0], parent=self)
+				mb.showinfo("Informasi", dataValid[0], parent=self.parent)
 						
 	def klik_btn_lihat(self):
-		objSimaPanel = SimamaPanel(self.parent, self.datafile)
+		if self.datafile==None:
+			print("Masukkan File SIMAMA")
+		else:
+			objSimaPanel = SimamaPanel(self.parent, self.datafile)
 
 	def klik_btn_proses(self):
 		pass
 		
-	def klik_btn_batal(self):
+	def klik_btn_bersih(self):
+		pass
+		
+	def klik_btn_rekap(self):
 		pass
 		
 	def klik_btn_ekspor1(self):
@@ -334,8 +321,8 @@ class SimamaGUI:
 	def klik_btn_ekspor(self):
 		pass
 		
-	def klik_btn_rekap(self):
-		pass
+	def klik_btn_tutup(self):
+		self.parent.destroy()
 		
 	def cb_urut_isi(self, listdata):
 		self.cbx_urut1.config(values = listdata)
@@ -351,7 +338,7 @@ class SimamaPanel(tk.Toplevel):
 		tk.Toplevel.__init__(self, parent)
 		
 		self.title("Laporan Hasil SIMAMA")
-		self.resizable(False, False)
+		#self.resizable(False, False)
 		self.transient(parent)
 		self.grab_set()
 		self.protocol("WM_DELETE_WINDOW", self.klik_btn_x)
